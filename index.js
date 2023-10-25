@@ -10,3 +10,27 @@ function generer() {
     document.getElementById("un").innerHTML = encoreUn
     document.getElementById("deux").innerHTML = encoreDeux
 }
+
+function partager() {
+    let phrase = `Est-ce que tu préfères être ${document.getElementById("un").innerHTML} ou ${document.getElementById("deux").innerHTML} ?`
+    console.log(phrase)
+    if (navigator.share) {
+        navigator.share({
+          title: document.title,
+          text: phrase,
+          url: window.location.href
+        })
+        .then(() => console.log('Successful share'))
+        .catch(error => console.log('Error sharing:', error));
+    
+    }
+    else {
+        tweeter()
+    }
+}
+
+function tweeter() {
+    let phrase = `Est-ce que tu préfères être ${document.getElementById("un").innerHTML} ou ${document.getElementById("deux").innerHTML} ?`
+    console.log(phrase)
+    window.open(`https://twitter.com/intent/tweet?url=https://phrasedemotivation.gougoule.ch&text=${phrase}`)
+}
