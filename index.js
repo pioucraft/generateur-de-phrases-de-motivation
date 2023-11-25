@@ -32,5 +32,5 @@ function partager() {
 function tweeter() {
     let phrase = `Est-ce que tu préfères être ${document.getElementById("un").innerHTML} ou ${document.getElementById("deux").innerHTML} ?`
     console.log(phrase)
-    window.open(`https://twitter.com/intent/tweet?url=https://phrasedemotivation.gougoule.ch&text=${phrase}`)
+    window.open(`https://twitter.com/intent/tweet?url=${window.location.href}&text=${phrase}`)
 }
